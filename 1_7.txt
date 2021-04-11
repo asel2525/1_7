@@ -1,0 +1,97 @@
+from datetime import date
+group = {
+    'names':{
+        'Aygerim': {
+            'role': 'gitarist',
+            'date': date(2003, 10, 23)
+        },
+
+        'Nika': {
+            'role': 'drummer',
+            'date': date(2002, 11, 22)
+        },
+        'Liza': {
+            'role': 'singer',
+            'date': date(2000, 12, 13)
+        
+        },
+    },
+    'concerts':{
+        'Pekin':{
+            'concert_date':date(2022, 12, 12),
+            'expenses':[234, 234, 456],
+            'income': 22000
+        },
+        'Bishkek':{
+            'concert_date':date(2021, 12, 23),
+            'expenses': [234, 544, 454],
+            'income': 22000
+        },
+        'Seoul':{
+            'concert_date':date(2021, 12, 21),
+            'expenses': [324, 354, 767],
+            'income': 22000
+        },
+        'Moscow':{
+            'concert_date':date(2022, 10, 23),
+            'expenses': [332, 454, 353],
+            'income': 22000
+        },
+        'Brasilia':{
+            'concert_date':date(2022, 10, 23),
+            'expenses': [456, 455, 334],
+            'income': 22000
+        }
+    }
+}
+
+# 1
+def rem():
+    del group['names']['Aygerim']
+    return group
+
+print(rem())
+
+# 2
+new_name = {'Mika':{ 
+            'role':'dramer',
+            'date': date(1995, 12, 22)
+            }
+        }
+def add(dd):
+    group['names'].update(dd) 
+    return group
+
+print(add(new_name))
+
+# 3
+new_concert = {'Almaty':{
+            'concert_date':date(2022, 11, 6),
+            'expences':[234, 433, 120],
+            'income': 22000
+        }
+}
+
+def add_concert(dg):
+    group['concerts'].update(dg) 
+    return group
+
+print(add_concert(new_concert))
+
+# 4
+def spendings():
+   sum(group['concerts']['Pekin']['expenses'])
+   sum(group['concerts']['Bishkek']['expenses'])
+   sum(group['concerts']['Seoul']['expenses'])
+   sum(group['concerts']['Moscow']['expenses'])
+   sum(group['concerts']['Brasilia']['expenses'])
+print(spendings())
+
+# 5
+def differences():
+   group['concerts']['Pekin']['income'] - sum(group['concerts']['Pekin']['expenses']) 
+   group['concerts']['Bishkek']['income'] - sum(group['concerts']['Bishkek']['expenses'])
+   group['concerts']['Seoul']['income'] - sum(group['concerts']['Seoul']['expenses'])
+   group['concerts']['Moscow']['income'] - sum(group['concerts']['Moscow']['expenses'])
+   group['concerts']['Brasilia']['income'] - sum(group['concerts']['Brasilia']['expenses'])
+print(differences())
